@@ -2,24 +2,27 @@
 #A simple program to obscure data (Not very secure)
 
 def num_scramble(number):
-    output = ""
-    for num in str(number):
-        output += str(int(num) + 1)
-    
-    output = int(output) * 2
+    #Some fancy encryption
 
-    return output
+    return int(number) * 2
 
 def num_scramble_undo(number):
-    output = ""
-    number = number / 2
-    for num in str(int(number)):
-        output += str(int(num) - 1)
+    #Some fancy decryption
 
-    return output
+    return int(int(number) / 2)
 
 def string_scrable(string):
-    pass
+    #Caeser cipher
+    output = ""
+    for letter in string:
+        output += chr(int(ord(letter) + 10))
+    
+    return output
 
 def string_scramble_undo(string):
-    pass
+    #Caeser cipher
+    output = ""
+    for letter in string:
+        output += chr(int(ord(letter) - 10))
+    
+    return output
