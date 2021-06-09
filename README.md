@@ -2,18 +2,18 @@
 
 This repository contains exercises for the python course
 
-#Easy
+## Easy
 
 All easy challenges are complete using functions
 
-#Intermediate
+## Intermediate
 
 TBW
 
-#Hard
+## Hard
 
 TBW
 
-#TC_Teller
+## TC_Teller
 
 This is a program im writing to try pytest, all hidden files are made avaliable (Ones that usually woudlnt)
