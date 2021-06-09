@@ -1,9 +1,14 @@
 def num_text():
     units = ["One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"]
 
+<<<<<<< HEAD
     tens = [["Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"
     ,"Twenty -","Thirty -","Fourty -","Fifty -","Sixty -","Seventy -","Eighty -","Nintey -"],["11","12","13"
     ,"14","15"]]
+=======
+    tens = ["Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"
+    ,"Twenty -","Thirty -","Fourty -","Fifty -","Sixty -","Seventy -","Eighty -","Nintey -"]
+>>>>>>> d8eabbc235a64a8f03e4371268564bc333db6ade
 
     hundreds = ["- Hundred and"]
 
