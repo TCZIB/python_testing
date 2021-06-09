@@ -26,8 +26,22 @@ def user_login():
     input_name = input("What is your name: ")
     input_pin = input("What is your pin: ")
 
+    try:
+        int(input_pin)
+        if len(input_pin) != 4:
+            return "error"
+
+    except:
+        pass
+
     name = string_scramble(input_name)
     pin = num_scramble(input_pin)
+
+    if not name:
+        return "Error"
+
+    if not pin:
+        return "Error"
 
     return name, pin
 
@@ -42,6 +56,11 @@ def search_csv(name, pin):
         if str(name) == row[0] and str(pin) == row[1]:
             print(row)
     
+    print(row)
+    
 
 search_query = user_login()
-search_csv(search_query[0], search_query[1])
+if search_query == "Error":
+    print(search_query)
+else:
+    search_csv(search_query[0], search_query[1])
