@@ -3,7 +3,7 @@ import os
 
 #Generates path based on placement of this file, structre should be ~/TC_teller/Sub_Programs/user_creation.py and CSV file shoudld be in /TC_Teller/Users_Data/users.csv 
 parentDirectory = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
-user_path = parentDirectory + "/Users_Data/users.csv"
+user_path = parentDirectory + "/Usually_Hidden/Users_Data/users.csv"
 
 #CSV Structure - name pin balance
 
