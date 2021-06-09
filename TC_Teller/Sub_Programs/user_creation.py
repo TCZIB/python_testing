@@ -1,5 +1,6 @@
 import csv
 import os
+from encryption import num_scramble ,string_scramble
 
 #Generates path based on placement of this file, structre should be ~/TC_teller/Sub_Programs/user_creation.py and CSV file shoudld be in /TC_Teller/Users_Data/users.csv 
 parentDirectory = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
@@ -53,7 +54,8 @@ def validation(info):
         return "Invalid balance"
     
     #Once the variables have been validated it convertes each to a string and returns as a list
-    info = [str(Input_Name), str(Input_Pin), str(Input_Balance)]
+    #Also note, the scramble functions are run to make sure saved infrmation isnt readable
+    info = [str(string_scramble(Input_Name)), str(num_scramble(Input_Pin)), str(num_scramble(Input_Balance))]
 
     return info
 

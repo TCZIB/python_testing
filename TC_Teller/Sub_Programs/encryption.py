@@ -4,14 +4,14 @@
 def num_scramble(number):
     #Some fancy encryption
 
-    return int(number) * 2
+    return float(number) * 2
 
 def num_scramble_undo(number):
     #Some fancy decryption
 
-    return int(int(number) / 2)
+    return float(number) / 2
 
-def string_scrable(string):
+def string_scramble(string):
     #Caeser cipher
     output = ""
     for letter in string:
