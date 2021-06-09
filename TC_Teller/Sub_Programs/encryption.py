@@ -4,11 +4,21 @@
 def num_scramble(number):
     #Some fancy encryption
 
+    try:
+        float(number) * 2
+    except:
+        return False
+
     return float(number) * 2
 
 def num_scramble_undo(number):
     #Some fancy decryption
 
+    try:
+        float(number) / 2
+    except:
+        return False
+        
     return float(number) / 2
 
 def string_scramble(string):
