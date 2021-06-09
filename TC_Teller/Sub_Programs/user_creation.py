@@ -1,6 +1,6 @@
 import csv
 import os
-from encryption import num_scramble ,string_scramble
+from Sub_Programs.encryption import num_scramble ,string_scramble
 
 #Generates path based on placement of this file, structre should be ~/TC_teller/Sub_Programs/user_creation.py and CSV file shoudld be in /TC_Teller/Users_Data/users.csv 
 parentDirectory = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
@@ -25,7 +25,7 @@ def get_user_info():
     return info
 
 #Function to valiate list given to it
-def validation(info):
+def verify(info):
 
     #Breaks down list given to it into smaller variables to be tested
     Input_Name = info[0]
@@ -76,4 +76,4 @@ def write(info):
 
 #Loop to run code above
 while True:
-    write(validation(get_user_info()))
+    write(verify(get_user_info()))
