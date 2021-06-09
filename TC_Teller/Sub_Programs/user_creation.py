@@ -6,12 +6,22 @@ user_path = parentDirectory + "/Users_Data/users.csv"
 
 #CSV Structure - name pin balance
 
-def user_input():
+def get_user_info():
 
     print("\n")
     Input_Name = input("What is your name: ")
     Input_Pin = input("What is your pin (4 digits): ")
     Input_Balance = input("What is your balance: ")
+
+    info = [str(Input_Name), str(Input_Pin), str(Input_Balance)]
+
+    return info
+
+def validation(info):
+
+    Input_Name = info[0]
+    Input_Pin = info[1]
+    Input_Balance = info[2]
     
     try:
         int(Input_Pin)
@@ -24,7 +34,7 @@ def user_input():
         return "Pin too short"
 
     try: 
-        int(Input_Balance)
+        float(Input_Balance)
     except:
         return "Invalid balance"
     
@@ -42,4 +52,4 @@ def write(info):
         csv_write.writerow(info)
 
 while True:
-    write(user_input())
+    write(validation(get_user_info()))
