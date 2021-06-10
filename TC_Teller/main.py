@@ -16,11 +16,9 @@ class user:
     
     def verify_y_n(self):
 
-        verified = False
-
         valid = ["y","n"]
 
-        while not verified:
+        while True:
             print("\n")
             usr_input = input("Return to menu y/n: ")
 
@@ -54,19 +52,25 @@ class user:
     def display_options(self):
         options = {"1":". Exit","2":". View Balance","3":". Withdraw","4":". Deposit"}
 
-        print("\n")
-        print(f"Welcome {self.name}")
-        print("From the list below please type in option:")
-        for option in options:
-            print(option + options[option])
+        while True:
+
+            print("\n")
+            print(f"Welcome {self.name}")
+            print("From the list below please type in option:")
+            for option in options:
+                print(option + options[option])
+            
+            
+            print("\n")
+            usr_input = input("Selection: ")
+            if usr_input not in options:
+                print("Invalid input")
+            else:
+                break
+
+        if usr_input == str(1):
+            return
         
-        usr_input = self.verify_input(usr_input, options)
-
-        if usr_input:
-            pass
-        if not usr_input:
-            self.display_options
-
         if usr_input == "Exit":
             print("Have a nice day!")
             print("\n")
@@ -76,22 +80,6 @@ class user:
 
         exec(next_func)
             
-    def get_input(self, options):
-
-        usr_input = input("Selection: ")
-
-        usr_input = usr_input.lower()
-
-        valid_input = list(str(options.keys()))
-        
-        if str(usr_input) not in valid_input:
-            return False
-
-        if usr_input == str(1):
-            return "Exit"
-        
-        return usr_input
-
 def user_login():
 
     input_name = input("What is your name: ")
@@ -115,14 +103,10 @@ def search_csv(info):
     csv_file = csv.reader(open(user_path, "r"), delimiter=",")
 
     for row in csv_file:
-        if str(name) == row[0]:
-            output = "Incorrect pin"
-            if str(pin) == row[1]:
-                return row
-
-    output = "User not found"
-
-    return output
+        if str(name) == row[0] and str(pin) == row[1]:
+            return row
+    
+    return "User Not Found"
 
 def user_generation(info):
     logged_in_user = user(string_scramble_undo(info[0]), num_scramble_undo(info[1]))
