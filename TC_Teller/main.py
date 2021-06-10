@@ -16,11 +16,9 @@ class user:
     
     def verify_y_n(self):
 
-        verified = False
-
         valid = ["y","n"]
 
-        while not verified:
+        while True:
             print("\n")
             usr_input = input("Return to menu y/n: ")
 
@@ -59,15 +57,8 @@ class user:
         print("From the list below please type in option:")
         for option in options:
             print(option + options[option])
-
-        usr_input = input("Selection: ")
         
         usr_input = self.verify_input(usr_input, options)
-
-        if usr_input:
-            pass
-        if not usr_input:
-            self.display_options
 
         if usr_input == "Exit":
             print("Have a nice day!")
@@ -78,15 +69,15 @@ class user:
 
         exec(next_func)
             
-    def verify_input(self, usr_input, options):
+    def verify_input(self, options):
 
-        usr_input = usr_input.lower()
-
-        valid_input = list(str(options.keys()))
-        
-        if str(usr_input) not in valid_input:
-            print("1")
-            return False
+        while True:
+            print("\n")
+            usr_input = input("Selection: ")
+            if usr_input not in options:
+                print("Invalid input")
+            else:
+                break
 
         if usr_input == str(1):
             return "Exit"
