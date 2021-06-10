@@ -1,4 +1,4 @@
-from encryption import num_scramble ,string_scramble
+from .encryption import num_scramble ,string_scramble
 
 #Function to valiate list given to it
 def verify(info):
