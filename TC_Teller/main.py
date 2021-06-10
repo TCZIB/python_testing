@@ -43,13 +43,14 @@ class user:
         
         return
     
-    def withdraw(self, amount):
+    def withdraw(self):
         return
     
-    def deposit(self, amount):
+    def deposit(self):
         return self.balance + amount
 
     def display_options(self):
+        
         options = {"1":". Exit","2":". View Balance","3":". Withdraw","4":". Deposit"}
 
         while True:
