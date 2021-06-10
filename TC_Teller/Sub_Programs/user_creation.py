@@ -1,6 +1,6 @@
 import csv
 import os
-from encryption import num_scramble ,string_scramble
+
 from validation import verify
 
 #Generates path based on placement of this file, structre should be ~/TC_teller/Sub_Programs/user_creation.py and CSV file shoudld be in /TC_Teller/Users_Data/users.csv 
