@@ -3,6 +3,7 @@ import sys
 import os
 
 from Sub_Programs.encryption import num_scramble_undo, string_scramble_undo, num_scramble, string_scramble
+from Sub_Programs.validation import verify
 
 class user:
 
@@ -26,24 +27,11 @@ def user_login():
     input_name = input("What is your name: ")
     input_pin = input("What is your pin: ")
 
-    try:
-        int(input_pin)
-        if len(input_pin) != 4:
-            return "error"
+    info = [input_name, input_pin, 0]
 
-    except:
-        pass
+    info = verify(info)
 
-    name = string_scramble(input_name)
-    pin = num_scramble(input_pin)
-
-    if not name:
-        return "Error"
-
-    if not pin:
-        return "Error"
-
-    return name, pin
+    return info
 
 def search_csv(name, pin):
 
@@ -59,8 +47,4 @@ def search_csv(name, pin):
     print(row)
     
 
-search_query = user_login()
-if search_query == "Error":
-    print(search_query)
-else:
-    search_csv(search_query[0], search_query[1])
+print(user_login())

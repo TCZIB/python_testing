@@ -1,6 +1,7 @@
 import csv
 import os
 from Sub_Programs.encryption import num_scramble ,string_scramble
+from Sub_Programs.validation import verify
 
 #Generates path based on placement of this file, structre should be ~/TC_teller/Sub_Programs/user_creation.py and CSV file shoudld be in /TC_Teller/Users_Data/users.csv 
 parentDirectory = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
@@ -22,41 +23,6 @@ def get_user_info():
     info = [str(Input_Name), str(Input_Pin), str(Input_Balance)]
 
     #Returns list
-    return info
-
-#Function to valiate list given to it
-def verify(info):
-
-    #Breaks down list given to it into smaller variables to be tested
-    Input_Name = info[0]
-    Input_Pin = info[1]
-    Input_Balance = info[2]
-
-    #Tests to see if the pin can be converted to interger
-    try:
-        int(Input_Pin)
-    except:
-        #If it cant be converted to an interger it returns an error message
-        return "Pin Invalid"
-
-    #Checks to see if the pin is too long
-    if len(Input_Pin) > 4:
-        return "Pin too long"
-    #Checks to see if the pin is too short
-    elif int(Input_Pin) < 4:
-        return "Pin too short"
-
-    #Tests to see if the balance can be converted to float
-    try: 
-        float(Input_Balance)
-    except:
-        #If it cant be converted to a float returns an error message
-        return "Invalid balance"
-    
-    #Once the variables have been validated it convertes each to a string and returns as a list
-    #Also note, the scramble functions are run to make sure saved infrmation isnt readable
-    info = [str(string_scramble(Input_Name)), str(num_scramble(Input_Pin)), str(num_scramble(Input_Balance))]
-
     return info
 
 #Function to write validated list to CSV file
