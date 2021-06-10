@@ -52,14 +52,25 @@ class user:
     def display_options(self):
         options = {"1":". Exit","2":". View Balance","3":". Withdraw","4":". Deposit"}
 
-        print("\n")
-        print(f"Welcome {self.name}")
-        print("From the list below please type in option:")
-        for option in options:
-            print(option + options[option])
-        
-        usr_input = self.verify_input(usr_input, options)
+        while True:
 
+            print("\n")
+            print(f"Welcome {self.name}")
+            print("From the list below please type in option:")
+            for option in options:
+                print(option + options[option])
+            
+            
+            print("\n")
+            usr_input = input("Selection: ")
+            if usr_input not in options:
+                print("Invalid input")
+            else:
+                break
+
+        if usr_input == str(1):
+            return
+        
         if usr_input == "Exit":
             print("Have a nice day!")
             print("\n")
@@ -69,21 +80,6 @@ class user:
 
         exec(next_func)
             
-    def verify_input(self, options):
-
-        while True:
-            print("\n")
-            usr_input = input("Selection: ")
-            if usr_input not in options:
-                print("Invalid input")
-            else:
-                break
-
-        if usr_input == str(1):
-            return "Exit"
-        
-        return usr_input
-
 def user_login():
 
     input_name = input("What is your name: ")
