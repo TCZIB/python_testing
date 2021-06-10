@@ -16,16 +16,22 @@ class user:
     
     def verify_y_n(self):
 
+        verified = False
+
         valid = ["y","n"]
 
-        print("\n")
-        usr_input = input("Return to menu y/n: ")
+        while not verified:
+            print("\n")
+            usr_input = input("Return to menu y/n: ")
 
-        if usr_input.lower() not in valid:
-            print("Invalid")
-            self.verify_y_n()
+            if usr_input not in valid:
+                print("Invalid input")
+            else:
+                break
         
         return usr_input
+
+
 
     def view_balance(self):
 
@@ -71,9 +77,7 @@ class user:
         next_func = "self."+((options[usr_input]).lower()[2:]).replace(" ","_")+"()"
 
         exec(next_func)
-        
-        
-    
+            
     def verify_input(self, usr_input, options):
 
         usr_input = usr_input.lower()
