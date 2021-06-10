@@ -16,10 +16,13 @@ class user:
     
     def verify_y_n(self):
 
+        valid = ["y","n"]
+
         print("\n")
         usr_input = input("Return to menu y/n: ")
 
-        if usr_input.lower() != "y" or usr_input != "n":
+        if usr_input.lower() not in valid:
+            print("Invalid")
             self.verify_y_n()
         
         return usr_input
@@ -28,18 +31,18 @@ class user:
 
         print("\n")
         print(f"{self.name} your balance is £{self.balance}")
-        usr_input = input("Return to menu y/n: ")
+
+        usr_input = self.verify_y_n()
     
         if usr_input == "y":
             self.display_options()
         
         return
     
-    def withdraw_user(self, amount):
-        self.balance = self.balance - amount
-        return balance
+    def withdraw(self, amount):
+        return
     
-    def deposit_user(self, amount):
+    def deposit(self, amount):
         return self.balance + amount
 
     def display_options(self):
