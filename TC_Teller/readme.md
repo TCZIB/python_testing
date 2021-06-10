@@ -12,3 +12,8 @@ Current users login info
 
 Try running main.py, it will automatically check the balance, it should be £999.99
 Why dont you add your own user and set their balance and pin!
+
+### Known errors:
+
+    * If user_creation.py is run it complains that validation contains 'from .encryption import num_scramble', main.py depends on the . however ...
+

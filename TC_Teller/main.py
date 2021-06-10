@@ -102,11 +102,15 @@ def search_csv(info):
 
     csv_file = csv.reader(open(user_path, "r"), delimiter=",")
 
+    output = "User not found"
+
     for row in csv_file:
-        if str(name) == row[0] and str(pin) == row[1]:
-            return row
+        if str(name) == row[0]:
+            output = "Pin incorrect"
+            if str(pin) == row[1]:
+                return row
     
-    return "User Not Found"
+    return output
 
 def user_generation(info):
     logged_in_user = user(string_scramble_undo(info[0]), num_scramble_undo(info[1]))
